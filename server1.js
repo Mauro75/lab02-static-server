@@ -5,7 +5,7 @@ var http = require("http");
 // y al puerto que debemos usar en 
 // nuestro server.
 var PORT = process.env.PORT || 3000;
-var IP = process.env.IP || '127.0.0.1';
+var IP = process.env.IP || '192.168.1.124';
 if(IP=='127.0.0.1'){
     console.log("> ---- EJECUTANDOCE EN MODO LOCAL ----");
 }
@@ -14,11 +14,11 @@ var server = http.createServer(function(req, res){
     // Armar la respuesta http
     // Armar un encabezado http
     res.writeHead(200,{
-        "Content-Type" : "text/plain",
+        "Content-Type" : "text/html",
         "Server" : "ITGAM@4.2.4"
     });
     // Enviamos la respuesta
-    res.write("Hola Mauro Leal");
+    res.write("<h1> Hola Mauro Leal </h1>");
     // Cerrar la conexion
     res.end();
 });
