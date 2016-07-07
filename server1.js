@@ -1,5 +1,6 @@
 // http
 var http = require("http");
+var fs = require('fs');
 // Obteniendo información del entorno
 // de ejecución con respecto al IP
 // y al puerto que debemos usar en 
@@ -16,6 +17,17 @@ var server = http.createServer(function(req, res){
     res.writeHead(200,{
         "Content-Type" : "text/html",
         "Server" : "ITGAM@4.2.4"
+    });
+
+    //lectura del archivo a seguir
+    fs.readfile('./static/index.html',
+    'utf8',function (err, content) {
+        if(errr){
+            res.end("<h1>ERROR DE LECTURA</H1>");
+        }else{
+            res.end(content);
+
+        }
     });
     // Enviamos la respuesta
     res.write("<h1> Hola Mauro Leal </h1>");
