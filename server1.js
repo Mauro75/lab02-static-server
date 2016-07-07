@@ -20,19 +20,16 @@ var server = http.createServer(function(req, res){
     });
 
     //lectura del archivo a seguir
-    fs.readfile('./static/index.html',
+    fs.readFile('./static/index.html',
     'utf8',function (err, content) {
-        if(errr){
+        if(err){
             res.end("<h1>ERROR DE LECTURA</H1>");
         }else{
             res.end(content);
 
         }
     });
-    // Enviamos la respuesta
-    res.write("<h1> Hola Mauro Leal </h1>");
-    // Cerrar la conexion
-    res.end();
+ 
 });
 // Poner a trabajar al server
 server.listen(PORT,IP,function(){
