@@ -1,0 +1,26 @@
+{
+  "name": "lab02-static-server",
+  "description": "Servidor Web estatico en node",
+  "main": "server1.js",
+  "authors": [
+    "jmaurolp@hotmail.com"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "node",
+    "static-server",
+    "web"
+  ],
+  "homepage": "https://github.com/Mauro75/lab02-static-server",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "sweetalert": "^1.1.3"
+  }
+}
