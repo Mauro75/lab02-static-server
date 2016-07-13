@@ -2,37 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link
+    rel="stylesheet"
+    href="./vendor/sweetalert/dist/sweetalert.css">
     <link rel="stylesheet" href="./css/site.css">
     <title>Mis lugares favoritos</title>
 </head>
-<body onload="hola()">
+<body onload = "hola()">
     <h1>Los lugares favoritos de Mauro Leal</h1>
     <div class="body">
-        <div class="lugar1"></div>
+        <div class="lugar1">
         <h2>San Miguel de Allende</h2>
         <img
         width="300px"
         height="300px"
         src="http://de-paseo.com/san-miguel-de-allende/wp-content/uploads/2015/08/parroquia_home_400_optim.jpg"
         alt="Guanajuato"
-        <div class="lugar2"></div>
+        </div>
+        <div class="lugar2">
         <h2>Tamiahua</h2>
         <img
         width="300px"
         height="300px"
         src="http://www.llaveempresarial.com.mx/wp-content/uploads/2016/01/Turismo-4.jpg"
         alt="Veracruz"
-        <div class="lugar3"></div>
+        </div>
+        <div class="lugar3">
         <h2>Peña de Bernal</h2>
         <img
         width="300px"
         height="300px"
-        src=""
+        src="http://www.queretaro.travel/uploads/imagenes/6_47_1557768813_BFuentedanzarina.jpg"
         alt="Queretaro"
+        </div>
     <div class="selector">
-        <button onclick="changeBkColor()">CAMBIAR FONDO</button>
+        <button onclick="changeBkgColor()">CAMBIAR FONDO</button>
     </div>
     <!-- Seccion de Scrips -->
-    <script src="./js/site.js"></scrip>
+    <script src="./vendor/sweetalert/dist/sweetalert.min.js"</script>
+    <script src="./js/site.js"></script>
 </body>
 </html>
