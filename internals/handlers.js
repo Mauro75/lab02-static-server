@@ -21,6 +21,7 @@ module.exports = {
         res.end(jsonResponse);
     },
     "/getfortune":function(req, res) {
+        console.log("<Se solicita fortuna...>");
         // // se obtiene el mensaje de la suerte
         //var fortunePaper = {
         //    "mensaje" :
@@ -38,7 +39,7 @@ module.exports = {
             "Content-Type" : "application/json"
         });
         // Respondemos el Objeto
-        res.end(jsonResponse);
+        res.end(fortunePaper);
     });
 }
 };
