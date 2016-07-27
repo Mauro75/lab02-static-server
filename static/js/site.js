@@ -4,9 +4,9 @@ function getFortuneFromServer(){
         console.log("> " +  typeof(data));
         console.log("> Estatus de respuesta: " + status);
         swal({
-            title: "¡TU FORTUNA!",
+            title: "¡ESTA ES TU FORTUNA!",
             text: data.message,
-            imageUrl: "img/gl.jpg"
+            imageUrl: "img/galleta.jpg"
         });
     },"json");
 }

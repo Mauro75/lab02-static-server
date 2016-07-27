@@ -14,7 +14,7 @@ exports.serve = function name(url, res) {
             //sirvo el archivo
             fs.readFile(filePath, function (err, content) {
                 if (err) {
-                    console.log(`> hubo error en la lectura del archivo: ${filePath}`);
+                    console.log(`> Hubo error en la lectura del archivo: ${filePath}`);
                     // enviar error 500 por error interno
                     res.writeHead(500,{
                         'ContentType' : 'text/html',

@@ -3,7 +3,7 @@
   "description": "Servidor Web estatico en node",
   "main": "server.js",
   "authors": [
-    "@mauro"
+    "jmaurolp@hotmail.com"
   ],
   "license": "ISC",
   "keywords": [
