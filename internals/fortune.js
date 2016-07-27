@@ -7,21 +7,15 @@ var mongoClient = mongodb.MongoClient;
 module.exports = {
     "getFortune" : function(cb){
         // Conectando el cliente a la base de datos fortune
-        // var connectionString = "mongodb://127.0.0.1:27017/fortune";
+        //var connectionString = "mongodb://127.0.0.1:27017/fortune";
         var connectionString = 
-        "mongodb://mauro:mis2ojonas040489.mlab.com:40489/fortune";  
+        "mongodb://mauro:mis2ojonas@ds040489.mlab.com:40489/fortune";  
         mongoClient.connect(connectionString,
         function(err, db){
             if(err){
                 console.log("> ERROR al conectarse a" +
                 " la base de datos: "+
                 connectionString);
-        mongoClient.connect("mongodb://127.0.0.1:27017/fortune",
-        function(err, db){
-            if(err){
-                console.log("> ERROR al conectarse a" +
-                " la base de datos:"+
-                " mongodb://127.0.0.1:27017/fortune");
                 var fortunePaper = {
                     "message":
                     "La honestidad es un regalo caro, no lo esperes de gente barata"
@@ -65,25 +59,9 @@ module.exports = {
     }
 };
 
-
+/**
+ * Returns a random number between min (inclusive) and max (exclusive)
+ */
 function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
-
-
-                // Parseo el objeto resultado en un arreglo
-                objetoRestultado.toArray(function(err, papers){
-                    var fortunePaperResponse = 
-                    JSON.stringify(papers[0]);
-                    // Cerrar la conexion entre el cliente
-                    // y la base de datos
-                    db.close()
-                    // Invoco al cb pasandole como parametro
-                    // la respuesta
-                    console.log("> La fortuna es: " + fortunePaperResponse);
-                    cb(fortunePaperResponse);
-                });
-            }
-        });
-    }
-};
