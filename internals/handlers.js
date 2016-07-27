@@ -1,45 +1,37 @@
 // Manejadores de rutas virtuales
 var fortune = require("./fortune");
-var fechaDeNacimiento = new Date();
 
+var fechaDeNacimiento = new Date(1981,10,22,1,45);
 module.exports = {
-    "/edad/mauro-leal" : function (req, res) {
+    "/edad/ivan-rivalcoba" : function(req, res){
         res.writeHead(200,{
             "Content-Type" : "application/json"
         });
-        // Calculando la edad
+        // Calculo la edad
         var hoy = new Date();
-        var age =
+        var age = 
         Math.ceil((hoy - fechaDeNacimiento)/(1000*3600*24*365))
         // Armando el json
         var objetoRespuesta = {
-            "edad" : 30
+            "edad" : age
         };
         var jsonResponse = 
         JSON.stringify(objetoRespuesta);
         // Envio la respuesta al cliente
-        res.end(jsonResponse);
+        res.end(jsonResponse); 
     },
-    "/getfortune":function(req, res) {
-        console.log("<Se solicita fortuna...>");
-        // // se obtiene el mensaje de la suerte
-        //var fortunePaper = {
-        //    "mensaje" :
-        //    "La honestidad es un regalo caro, no lo esperes de una persona baratas"
-        //};
-        // Se configura el ancabezado de respuesta
-        // HTTP
-        
-        // });
-        // Parseandoa string el objetoRespuesta
-        // de respuesta
-        //var jsonResponse = JSON.stringify(fortunePaper);
-        fortune.getFortune(function(fortunePaper) {
+    "/getfortune": function(req, res){
+        console.log("> Se solicita fortuna...");
+        // // Se obtiene el mensaje de la suerte
+        fortune.getFortune(function(fortunePaper){
+            // Se configura el encabezado de respuesta
+            // HTTP
             res.writeHead(200,{
-            "Content-Type" : "application/json"
+                "Content-Type" : "application/json"
+            });
+            console.log("Contestando: " + fortunePaper);
+            // Respondemos el Objeto
+            res.end(fortunePaper);
         });
-        // Respondemos el Objeto
-        res.end(fortunePaper);
-    });
-}
+    }
 };

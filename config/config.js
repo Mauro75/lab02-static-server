@@ -1,13 +1,12 @@
-// Leyendo Archivos de configuraciones
+// Leyendo Archivo de configuraciones
 var fs = require("fs");
-var path = ("path");
-var objconfig =
-JSON.parse(
-    fs.readFileSync("./config/config.json", "utf-8")
+var path = require("path");
+var objconfig = 
+    JSON.parse(
+        fs.readFileSync("./config/config.json", "utf-8")
     );
-    
+
 objconfig.IP = process.env.IP || objconfig.IP;
 objconfig.PORT = process.env.PORT || objconfig.PORT;
-objconfig.STATIC_PATH = process.env.STATIC_PATH || objconfig.STATIC_PATH;
-console.log("> STATIC_PATH: " + objconfig.STATIC_PATH);
-module.exports = objconfig;
+objconfig.STATIC_PATH = path.resolve(objconfig.STATIC_PATH);
+module.exports =  objconfig;

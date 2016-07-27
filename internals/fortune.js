@@ -7,6 +7,15 @@ var mongoClient = mongodb.MongoClient;
 module.exports = {
     "getFortune" : function(cb){
         // Conectando el cliente a la base de datos fortune
+        // var connectionString = "mongodb://127.0.0.1:27017/fortune";
+        var connectionString = 
+        "mongodb://mauro:mis2ojonas040489.mlab.com:40489/fortune";  
+        mongoClient.connect(connectionString,
+        function(err, db){
+            if(err){
+                console.log("> ERROR al conectarse a" +
+                " la base de datos: "+
+                connectionString);
         mongoClient.connect("mongodb://127.0.0.1:27017/fortune",
         function(err, db){
             if(err){
@@ -32,6 +41,35 @@ module.exports = {
                 // Consulto todos los documentos de mi coleccion
                 var objetoRestultado = 
                 papersCollection.find({});
+
+                // Parseo el objeto resultado en un arreglo
+                objetoRestultado.toArray(function(err, papers){
+                    // Obtengo un indide aleatorio
+                    // contemplando como min = 0
+                    // Y como max = la logitud de arreglo papers
+                    var randomIndex = 
+                    getRandomArbitrary(0, papers.length);
+                    console.log("> RandomIndex calculated: " + randomIndex);
+                    var fortunePaperResponse = 
+                    JSON.stringify(papers[randomIndex]);
+                    // Cerrar la conexion entre el cliente
+                    // y la base de datos
+                    db.close()
+                    // Invoco al cb pasandole como parametro
+                    // la respuesta
+                    console.log("> La fortuna es: " + fortunePaperResponse);
+                    cb(fortunePaperResponse);
+                });
+            }
+        });
+    }
+};
+
+
+function getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
 
                 // Parseo el objeto resultado en un arreglo
                 objetoRestultado.toArray(function(err, papers){
